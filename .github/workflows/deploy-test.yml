@@ -1,0 +1,65 @@
+name: Deploy test site to IONOS
+
+on:
+  push:
+    branches:
+      - test
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "*.html"
+      - ".github/workflows/deploy-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ionos-test
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy test website
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out test branch
+        uses: actions/checkout@v4
+
+      - name: Prepare test files
+        run: |
+          mkdir -p "$RUNNER_TEMP/noetria-test"
+          rsync -a --delete \
+            --exclude=".git/" \
+            --exclude=".github/" \
+            --exclude="README.md" \
+            ./ "$RUNNER_TEMP/noetria-test/"
+          sed -i 's/<meta name="robots" content="index, follow">/<meta name="robots" content="noindex, nofollow">/' "$RUNNER_TEMP/noetria-test/index.html"
+
+      - name: Install SFTP client
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes lftp
+
+      - name: Deploy to IONOS test directory
+        env:
+          IONOS_HOST: ${{ secrets.IONOS_HOST }}
+          IONOS_PORT: ${{ secrets.IONOS_PORT }}
+          IONOS_USERNAME: ${{ secrets.IONOS_USERNAME }}
+          IONOS_PASSWORD: ${{ secrets.IONOS_PASSWORD }}
+        run: |
+          lftp -u "$IONOS_USERNAME","$IONOS_PASSWORD" "sftp://$IONOS_HOST:$IONOS_PORT" <<EOF
+          set cmd:fail-exit yes
+          set net:max-retries 3
+          set net:timeout 20
+          set sftp:auto-confirm yes
+          cd test
+          mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" .
+          chmod 755 .
+          chmod 755 assets
+          chmod 755 assets/css
+          chmod 755 assets/images
+          bye
+          EOF
