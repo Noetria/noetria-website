@@ -55,10 +55,11 @@ jobs:
           set net:max-retries 3
           set net:timeout 20
           set sftp:auto-confirm yes
-          mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" test/
-          chmod 755 test
-          chmod 755 test/assets
-          chmod 755 test/assets/css
-          chmod 755 test/assets/images
+          cd test
+          mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" .
+          chmod 755 .
+          chmod 755 assets
+          chmod 755 assets/css
+          chmod 755 assets/images
           bye
           EOF
