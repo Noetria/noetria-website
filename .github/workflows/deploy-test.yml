@@ -57,5 +57,9 @@ jobs:
           set sftp:auto-confirm yes
           mkdir -p /test
           mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" /test/
+          chmod 755 /test
+          chmod 755 /test/assets
+          chmod 755 /test/assets/css
+          chmod 755 /test/assets/images
           bye
           EOF
