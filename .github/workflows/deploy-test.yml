@@ -55,7 +55,6 @@ jobs:
           set net:max-retries 3
           set net:timeout 20
           set sftp:auto-confirm yes
-          mkdir -p /test
           mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" /test/
           chmod 755 /test
           chmod 755 /test/assets
