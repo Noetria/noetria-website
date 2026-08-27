@@ -62,7 +62,105 @@ a {
 h1, h2, p {
   margin: 0;
 }
+/* ==========================================================================
+   Rendez-vous
+   ========================================================================== */
 
+.booking {
+  padding: 88px 24px 72px;
+  background: #F8FAFC;
+}
+
+.booking__inner {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booking__eyebrow {
+  margin: 0 0 16px;
+  color: #2563EB;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.booking__heading {
+  margin: 0;
+  color: #0F172A;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.booking__text {
+  max-width: 640px;
+  margin: 24px auto 0;
+  color: #64748B;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.booking__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  padding: 15px 28px;
+  border-radius: 6px;
+  background: #2563EB;
+  color: #F8FAFC;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.booking__button:hover {
+  background: #1D4ED8;
+  transform: translateY(-1px);
+}
+
+.booking__button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 4px;
+}
+
+.booking__note {
+  margin: 18px 0 0;
+  color: #94A3B8;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.booking-back {
+  padding: 0 24px 72px;
+  background: #F8FAFC;
+}
+
+.booking-back__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booking-back__link {
+  color: #64748B;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.booking-back__link:hover {
+  color: #0F172A;
+  text-decoration: underline;
+}
 /* ---------- Accessibilité ---------- */
 
 .skip-link {
