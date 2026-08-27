@@ -124,13 +124,16 @@
   </footer>
 
   <script>
-    window.addEventListener("load", function () {
-      document.getElementById("rendez-vous").scrollIntoView({
-        behavior: "instant",
-        block: "start"
-      });
-    });
-  </script>
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      const section = document.getElementById("rendez-vous");
+
+      if (section) {
+        window.scrollTo(0, section.offsetTop);
+      }
+    }, 100);
+  });
+</script>
 
 </body>
 </html>
