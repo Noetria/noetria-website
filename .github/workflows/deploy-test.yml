@@ -31,12 +31,16 @@ jobs:
       - name: Prepare test files
         run: |
           mkdir -p "$RUNNER_TEMP/noetria-test"
+
           rsync -a --delete \
             --exclude=".git/" \
             --exclude=".github/" \
             --exclude="README.md" \
             ./ "$RUNNER_TEMP/noetria-test/"
-          sed -i 's/<meta name="robots" content="index, follow">/<meta name="robots" content="noindex, nofollow">/' "$RUNNER_TEMP/noetria-test/index.html"
+
+          sed -i \
+            's/<meta name="robots" content="index, follow">/<meta name="robots" content="noindex, nofollow">/' \
+            "$RUNNER_TEMP/noetria-test/index.html"
 
       - name: Install SFTP client
         run: |
@@ -52,13 +56,17 @@ jobs:
         run: |
           lftp -u "$IONOS_USERNAME","$IONOS_PASSWORD" "sftp://$IONOS_HOST:$IONOS_PORT" <<EOF
           set cmd:fail-exit no
-          mkdir test
           set cmd:fail-exit yes
-          cd test
-          mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" .
-          chmod 755 .
-          chmod 755 assets
-          chmod 755 assets/css
-          chmod 755 assets/images
+          set net:max-retries 3
+          set net:timeout 20
+          set sftp:auto-confirm yes
+
+          mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" test
+
+          chmod 755 test
+          chmod 755 test/assets
+          chmod 755 test/assets/css
+          chmod 755 test/assets/images
+
           bye
           EOF
