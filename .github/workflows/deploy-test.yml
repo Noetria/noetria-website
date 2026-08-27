@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - test
-    paths:
-      - "index.html"
-      - "assets/**"
-      - "**/*.html"
-      - ".github/workflows/deploy-test.yml"
   workflow_dispatch:
 
 permissions:
