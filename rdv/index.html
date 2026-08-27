@@ -123,15 +123,18 @@
     </div>
   </footer>
 
-  <script>
+ <script>
   window.addEventListener("load", function () {
     setTimeout(function () {
       const section = document.getElementById("rendez-vous");
 
       if (section) {
-        window.scrollTo(0, section.offsetTop);
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
       }
-    }, 100);
+    }, 300);
   });
 </script>
 
