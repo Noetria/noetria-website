@@ -73,7 +73,7 @@
     </section>
 
     <!-- Rendez-vous -->
-    <section class="booking">
+    <section class="booking" id="rendez-vous">
       <div class="booking__inner">
         <p class="booking__eyebrow">Prise de rendez-vous</p>
 
@@ -122,6 +122,15 @@
       </nav>
     </div>
   </footer>
+
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("rendez-vous").scrollIntoView({
+        behavior: "instant",
+        block: "start"
+      });
+    });
+  </script>
 
 </body>
 </html>
