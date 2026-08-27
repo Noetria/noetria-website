@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Prendre rendez-vous | Noetria</title>
-  <meta name="description" content="Échangeons autour de vos projets en IA, Data et R&D. Réservez directement un créneau avec Noetria.">
+  <meta name="description" content="Réservez un créneau pour échanger autour de vos enjeux en Intelligence Artificielle, Data et R&D.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://noetria.fr/rdv/">
 
@@ -20,40 +20,286 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
 
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prendre rendez-vous | Noetria">
+  <meta name="twitter:description" content="Échangeons autour de vos projets en IA, Data et R&D.">
+  <meta name="twitter:image" content="https://noetria.fr/assets/images/noetria-og.jpg">
+
   <!-- Favicons -->
   <link rel="icon" href="../assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/android-chrome-512x512.png">
+  <meta name="theme-color" content="#0F172A">
 
   <!-- Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  </head>
+  <!-- Styles existants du site -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Styles spécifiques à la page rendez-vous */
+
+    .rdv-hero {
+      min-height: 52vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 24px 60px;
+      background: #0F172A;
+      color: #F8FAFC;
+      text-align: center;
+    }
+
+    .rdv-hero__inner {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .rdv-hero__mark {
+      display: block;
+      width: clamp(125px, 18vw, 180px);
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    .rdv-hero__wordmark {
+      margin: 0;
+      font-size: clamp(2.7rem, 7vw, 4.7rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .rdv-hero__tagline {
+      margin: 17px 0 0;
+      color: #F8FAFC;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      letter-spacing: .02em;
+    }
+
+    .rdv-hero__eyebrow {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 13px;
+      margin: 27px 0 0;
+      color: #94A3B8;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .rdv {
+      padding: 72px 24px 78px;
+      background: #F8FAFC;
+    }
+
+    .rdv__inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .rdv__label {
+      margin: 0 0 14px;
+      color: #2563EB;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .rdv__heading {
+      margin: 0 0 22px;
+      color: #0F172A;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .rdv__text {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #64748B;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .rdv__actions {
+      margin-top: 38px;
+    }
+
+    .rdv__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 27px;
+      border-radius: 8px;
+      background: #2563EB;
+      color: #FFFFFF;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .rdv__button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, .20);
+    }
+
+    .rdv__button svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .rdv__note {
+      margin: 18px auto 0;
+      color: #94A3B8;
+      font-size: .82rem;
+    }
+
+    .rdv__back {
+      display: inline-block;
+      margin-top: 42px;
+      color: #64748B;
+      font-size: .88rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .rdv__back:hover {
+      color: #0F172A;
+    }
+
+    @media (max-width: 600px) {
+      .rdv-hero {
+        min-height: 46vh;
+        padding-top: 55px;
+        padding-bottom: 50px;
+      }
+
+      .rdv {
+        padding-top: 55px;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
 
 <body>
-  <main>
 
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
 
+  <main id="contenu">
 
-    <h1>Échangeons</h1>
+    <!-- Identité Noetria -->
+    <section class="rdv-hero" aria-label="Noetria">
+      <div class="rdv-hero__inner">
 
-    <p>
-      Vous souhaitez échanger autour d'un besoin en intelligence artificielle,
-      Data ou R&amp;D ? Réservez directement un créneau dans mon agenda.
-    </p>
+        <picture>
+          <source srcset="../assets/images/noetria-mark.webp" type="image/webp">
+          <img
+            class="rdv-hero__mark"
+            src="../assets/images/noetria-mark.png"
+            alt="Noetria"
+            width="450"
+            height="450"
+            fetchpriority="high"
+          >
+        </picture>
 
-    <a
-      class="contact__actions"
-      href="https://bookings.cloud.microsoft/bookwithme/user/8738355ce5ce44c9938688e79b729c49%40noetria.fr/meetingtype/0l6IifGoe0mHkzyfZ9ZpSA2?anonymous&amp;ismsaljsauthenabled"
-      rel="noopener"
-    >
-      Prendre rendez-vous
-    </a>
+        <h1 class="rdv-hero__wordmark">Noetria</h1>
 
-    <a class="back" href="../">
-      Retour sur noetria.fr
-    </a>
+        <p class="rdv-hero__tagline">
+          De la recherche à l'impact métier
+        </p>
+
+        <p class="rdv-hero__eyebrow">
+          <span>Intelligence&nbsp;Artificielle</span>
+          <span aria-hidden="true">•</span>
+          <span>Data</span>
+          <span aria-hidden="true">•</span>
+          <span>R&amp;D</span>
+          <span aria-hidden="true">•</span>
+          <span>Formation</span>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Rendez-vous -->
+    <section class="rdv" aria-labelledby="rdv-heading">
+      <div class="rdv__inner">
+
+        <p class="rdv__label">Prise de rendez-vous</p>
+
+        <h2 class="rdv__heading" id="rdv-heading">
+          Échangeons sur votre projet
+        </h2>
+
+        <p class="rdv__text">
+          Vous souhaitez discuter d'un besoin en intelligence artificielle,
+          Data ou R&amp;D&nbsp;? Choisissez directement un créneau disponible
+          dans mon agenda pour un premier échange.
+        </p>
+
+        <div class="rdv__actions">
+          <a
+            class="rdv__button"
+            href="https://bookings.cloud.microsoft/bookwithme/user/8738355ce5ce44c9938688e79b729c49%40noetria.fr/meetingtype/0l6IifGoe0mHkzyfZ9ZpSA2?anonymous&amp;ismsaljsauthenabled"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 16H5V9h14v11ZM7 11h5v5H7v-5Z"/>
+            </svg>
+            Choisir un créneau
+          </a>
+        </div>
+
+        <p class="rdv__note">
+          La réservation est assurée par Microsoft Bookings.
+        </p>
+
+        <a class="rdv__back" href="../">
+          ← Retour à noetria.fr
+        </a>
+
+      </div>
+    </section>
+
   </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© 2026 Noetria</span>
+
+      <nav class="footer__links" aria-label="Liens de pied de page">
+        <a href="../mentions-legales.html">Mentions légales</a>
+        <a
+          href="https://www.linkedin.com/company/noetria/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </nav>
+    </div>
+  </footer>
+
 </body>
 </html>
