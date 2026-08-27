@@ -55,12 +55,18 @@ jobs:
           IONOS_PASSWORD: ${{ secrets.IONOS_PASSWORD }}
         run: |
           lftp -u "$IONOS_USERNAME","$IONOS_PASSWORD" "sftp://$IONOS_HOST:$IONOS_PORT" <<EOF
+          set cmd:fail-exit no
           set cmd:fail-exit yes
           set net:max-retries 3
           set net:timeout 20
           set sftp:auto-confirm yes
 
           mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" test
+
+          chmod 755 test
+          chmod 755 test/assets
+          chmod 755 test/assets/css
+          chmod 755 test/assets/images
 
           bye
           EOF
