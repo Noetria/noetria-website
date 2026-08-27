@@ -7,7 +7,7 @@ on:
     paths:
       - "index.html"
       - "assets/**"
-      - "*.html"
+      - "**/*.html"
       - ".github/workflows/deploy-test.yml"
   workflow_dispatch:
 
@@ -55,6 +55,7 @@ jobs:
           set net:max-retries 3
           set net:timeout 20
           set sftp:auto-confirm yes
+          mkdir -p test
           cd test
           mirror --reverse --delete --verbose "$RUNNER_TEMP/noetria-test" .
           chmod 755 .
