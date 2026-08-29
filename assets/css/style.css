@@ -28,5 +28,5 @@
 .booking-header__back{color:var(--navy)}
 
 /* Logo complet, conservé à une taille compacte mais lisible. */
-.brand img{width:48px;height:48px}
-@media(max-width:640px){.brand img{width:42px;height:42px}}
+.brand img{width:96px;height:96px}
+@media(max-width:640px){.brand img{width:84px;height:84px}}
