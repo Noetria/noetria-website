@@ -23,3 +23,8 @@
 .booking-reassurance p{color:var(--slate);font-size:.76rem}
 .footer__inner{display:contents}
 @media(max-width:640px){.booking-header__back{font-size:.72rem}.booking-page .booking{padding-top:72px}.booking-reassurance{grid-template-columns:1fr;margin-bottom:72px}}
+
+/* Le logo disponible est la variante claire : en-tête bleu nuit. */
+.site-header{border-bottom-color:#ffffff1a;background:#0f172af2;color:#fff}
+.site-nav a{color:#dbe4f2}
+.booking-header__back{color:#fff}
