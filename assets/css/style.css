@@ -32,8 +32,8 @@
 @media(max-width:640px){.brand img{width:84px;height:84px}}
 
 /* Filigrane fixe de marque sur la page d'accueil. */
-.home-page::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:url("../images/noetria-mark-on-light.png") center/680px auto no-repeat;filter:grayscale(1);opacity:.055}
+.home-page::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:url("../images/noetria-mark-on-light.png") center/760px auto no-repeat;filter:grayscale(1);opacity:.14}
 .home-page main{position:relative;z-index:1}
-.home-page .hero{background:radial-gradient(circle at 85% 12%,#2563eb1f,transparent 28%),rgba(248,250,252,.88)}
-.home-page .section--offers{background:rgba(255,255,255,.92)}
-@media(max-width:640px){.home-page::before{background-size:92vw auto;opacity:.045}}
+.home-page .hero{background:radial-gradient(circle at 85% 12%,#2563eb1f,transparent 28%),rgba(248,250,252,.7)}
+.home-page .section--offers{background:rgba(255,255,255,.82)}
+@media(max-width:640px){.home-page::before{background-size:100vw auto;opacity:.11}}
