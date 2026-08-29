@@ -35,6 +35,10 @@
 .signal__brand img{width:min(240px,78%);height:auto;filter:drop-shadow(0 18px 28px #050a1770)}
 .signal__label{padding-top:1.25rem}
 
+/* Libellés du premier écran : contraste renforcé dans la palette Noetria. */
+.hero__content .eyebrow{color:var(--blue-dark);font-size:.82rem;font-weight:800;letter-spacing:.1em}
+.hero__signal .signal__label{color:var(--white);font-size:.82rem;font-weight:800;letter-spacing:.1em}
+
 @media(max-width:640px){
   .brand img{width:42px;height:42px;border-radius:7px}
   .signal__brand img{width:min(210px,72%)}
