@@ -27,6 +27,15 @@
 /* Variante sombre du logo sur l'en-tête clair. */
 .booking-header__back{color:var(--navy)}
 
-/* Logo complet, conservé à une taille compacte mais lisible. */
-.brand img{width:96px;height:96px}
-@media(max-width:640px){.brand img{width:84px;height:84px}}
+/* Le symbole seul reste lisible dans l'en-tête compact. */
+.brand img{width:48px;height:48px;border-radius:8px}
+
+/* Le logo complet porte l'identité dans le premier écran. */
+.signal__brand{display:grid;place-items:center;padding:0 1rem 1.35rem;border-bottom:1px solid #ffffff1f}
+.signal__brand img{width:min(240px,78%);height:auto;filter:drop-shadow(0 18px 28px #050a1770)}
+.signal__label{padding-top:1.25rem}
+
+@media(max-width:640px){
+  .brand img{width:42px;height:42px;border-radius:7px}
+  .signal__brand img{width:min(210px,72%)}
+}
