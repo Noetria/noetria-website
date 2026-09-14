@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Bisone;Frédérick;;;
+FN:Frédérick Bisone
+ORG:Noetria
+TITLE:Président - Docteur en informatique
+TEL;TYPE=CELL,WORK:+33766600439
+EMAIL;TYPE=INTERNET,WORK:frederick.bisone@noetria.fr
+URL:https://noetria.fr/frederick
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/frederickbisone/
+NOTE:IA - Data - R&D
+END:VCARD
