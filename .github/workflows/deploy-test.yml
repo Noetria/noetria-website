@@ -8,6 +8,7 @@ on:
       - "index.html"
       - "assets/**"
       - "**/*.html"
+      - "**/*.vcf"
       - ".github/workflows/deploy-test.yml"
   workflow_dispatch:
 
