@@ -14,25 +14,21 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-dark/apple-touch-icon.png">
   <link rel="manifest" href="assets/images/favicon-dark/site.webmanifest">
   <meta name="theme-color" content="#0F172A">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preload" href="assets/fonts/manrope/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/manrope/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="assets/css/fonts.css"><link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="legal-page">
 
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="legal-header">
-    <a class="legal-header__brand" href="./" aria-label="Retour à l'accueil Noetria">Noetria</a>
+    <a class="legal-header__brand" href="./" aria-label="Retour à l'accueil Noetria"><img src="assets/images/logo/noetria_n-seul_pour-fond-sombre_transparent_512x512.png" alt="" width="30" height="30"><span>Noetria</span></a>
   </header>
 
   <main id="contenu" class="legal">
     <div class="legal__inner">
       <a class="legal__back" href="./">← Retour à l'accueil</a>
       <h1>Mentions légales</h1>
-      <p class="legal__updated">Dernière mise à jour : 26 août 2026</p>
+      <p class="legal__updated">Dernière mise à jour : 3 octobre 2026</p>
 
       <section class="legal__section">
         <h2>Éditeur du site</h2>
@@ -83,13 +79,20 @@
         </p>
       </section>
 
-      <section class="legal__section">
+      <section class="legal__section" id="donnees-personnelles">
         <h2>Données personnelles</h2>
         <p>
-          Le site ne comporte actuellement aucun formulaire et ne dépose aucun traceur
-          publicitaire. Lorsqu'une personne contacte NOETRIA par courrier électronique,
-          les informations transmises sont utilisées pour traiter sa demande et assurer
-          le suivi de la relation professionnelle.
+          Le site ne comporte aucun formulaire de collecte de données qui lui soit propre
+          et ne dépose aucun traceur publicitaire. Lorsqu'une personne contacte NOETRIA par
+          courrier électronique, les informations transmises sont utilisées pour traiter sa
+          demande et assurer le suivi de la relation professionnelle.
+        </p>
+        <p>
+          La prise de rendez-vous s'effectue sur un service externe, Microsoft Bookings,
+          vers lequel le bouton « Choisir un créneau » renvoie. Les informations renseignées
+          lors de la réservation sont utilisées par NOETRIA pour organiser et suivre
+          l'échange demandé. Ce service est exploité par Microsoft et relève de ses propres
+          conditions d'utilisation et de sa propre politique de confidentialité.
         </p>
         <p>
           Pour exercer vos droits d'accès, de rectification, d'effacement, de limitation
