@@ -2,10 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://noetria.fr/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-26</lastmod>
   </url>
   <url>
     <loc>https://noetria.fr/rendez-vous/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://noetria.fr/diagnostic-ia-data/</loc>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://noetria.fr/cadrage-cas-usage-ia/</loc>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://noetria.fr/poc-ia-data/</loc>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://noetria.fr/industrialisation-ia-data/</loc>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://noetria.fr/formation-ia-entreprise/</loc>
+    <lastmod>2026-10-26</lastmod>
   </url>
 </urlset>

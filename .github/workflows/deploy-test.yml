@@ -33,9 +33,47 @@ jobs:
             --exclude="README.md" \
             ./ "$RUNNER_TEMP/noetria-test/"
 
-          sed -i \
-            's/<meta name="robots" content="index, follow">/<meta name="robots" content="noindex, nofollow">/' \
-            "$RUNNER_TEMP/noetria-test/index.html"
+          # Environnement /test/ uniquement : toutes les pages indexables en production
+          # deviennent « noindex, follow » dans la copie de test. Les fichiers du dépôt
+          # et le déploiement de production (deploy.yml, branche main) ne sont pas modifiés.
+          find "$RUNNER_TEMP/noetria-test" -type f -name "*.html" -exec sed -i \
+            's/<meta name="robots" content="index, follow">/<meta name="robots" content="noindex, follow">/' {} +
+
+          # Contrôle chaque page HTML : la balise robots doit exister et interdire l'indexation.
+          TEST_SITE_DIR="$RUNNER_TEMP/noetria-test" python3 - <<'PY'
+          from html.parser import HTMLParser
+          import os
+          from pathlib import Path
+          import sys
+
+          class RobotsChecker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.robots = []
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() == "meta":
+                      attributes = {key.lower(): value or "" for key, value in attrs}
+                      if attributes.get("name", "").lower() == "robots":
+                          self.robots.append(attributes.get("content", ""))
+
+          errors = []
+          for page in Path(os.environ["TEST_SITE_DIR"]).rglob("*.html"):
+              parser = RobotsChecker()
+              parser.feed(page.read_text(encoding="utf-8"))
+              directives = [
+                  directive.strip().lower()
+                  for content in parser.robots
+                  for directive in content.split(",")
+              ]
+              if not parser.robots or "noindex" not in directives or "index" in directives:
+                  errors.append(str(page))
+
+          if errors:
+              print("Erreur : balise robots absente ou page de test indexable :", file=sys.stderr)
+              print("\n".join(errors), file=sys.stderr)
+              sys.exit(1)
+          PY
 
       - name: Install SFTP client
         run: |
