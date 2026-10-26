@@ -1,0 +1,5 @@
+# Noetria - redirections canoniques : tout vers https://noetria.fr (HTTPS, sans www, domaines secondaires)
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !=443 [OR]
+RewriteCond %{HTTP_HOST} !^noetria\.fr$ [NC]
+RewriteRule ^(.*)$ https://noetria.fr/$1 [R=301,L]
